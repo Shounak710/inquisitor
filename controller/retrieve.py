@@ -22,7 +22,24 @@ STOP = {
     "its",
     "our",
 }
-CODE_SUFFIXES = {".py", ".ts", ".tsx", ".js", ".jsx", ".go", ".rs", ".java", ".rb"}
+# Source files the search will open. Config and docs stay out so package.json
+# and README files do not crowd out the code.
+CODE_SUFFIXES = {
+    ".py", ".pyi",
+    ".js", ".jsx", ".mjs", ".cjs",
+    ".ts", ".tsx", ".mts", ".cts",
+    ".go", ".rs", ".zig",
+    ".java", ".kt", ".kts", ".scala", ".groovy", ".clj", ".cljs", ".cljc",
+    ".c", ".h", ".cpp", ".cc", ".cxx", ".hpp", ".hh", ".hxx",
+    ".cs", ".fs", ".fsx", ".vb",
+    ".swift", ".m", ".mm", ".dart",
+    ".rb", ".php", ".pl", ".pm", ".lua", ".r",
+    ".sql",
+    ".sh", ".bash", ".ps1",
+    ".hs", ".ex", ".exs", ".erl", ".ml", ".mli",
+    ".pas", ".f", ".f90", ".cob", ".cbl", ".adb", ".ads", ".asm", ".s",
+    ".vue", ".svelte", ".html", ".htm", ".css", ".scss", ".less",
+}
 SKIP_DIRS = {".git", "docs", "__pycache__", ".venv", "node_modules", "venv"}
 
 

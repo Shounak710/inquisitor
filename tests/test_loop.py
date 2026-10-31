@@ -311,6 +311,24 @@ class LoopTest(unittest.TestCase):
         self.assertEqual(result.questions_asked, ("deletion-2",))
         self.assertEqual(result.records_written, ("D002",))
 
+    def test_an_open_question_records_the_human_words(self):
+        fork = Fork(
+            id="empty-state",
+            topic="empty-state",
+            question="What should the empty state say?",
+            kind=Kind.PRODUCT,
+        )
+
+        def write_thoughts(questions):
+            self.assertEqual(questions[0].options, ())
+            return [Answer("empty-state", text="Keep it to one sentence.")]
+
+        result = self.execute(Mode.DESIGN, [fork], ask=write_thoughts)
+        self.assertEqual(result.questions_asked, ("empty-state",))
+        self.assertEqual(result.records_written, ("D001",))
+        self.assertIn("Keep it to one sentence.", (self.decisions / "D001.md").read_text())
+        self.assertIsNone(result.constraints[0].option_id)
+
     def test_a_block_below_the_mode_bar_goes_back_to_the_coder(self):
         blocked = Fork(
             id="placement",

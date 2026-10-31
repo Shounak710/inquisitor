@@ -78,7 +78,12 @@ def cli_ask(questions: list[Question]) -> list[Answer]:
         for index, option in enumerate(question.options, 1):
             mark = " (recommended)" if option.id == question.recommended else ""
             print(f"  {index}. {option.label}{mark}")
-        print("  Press enter to take the recommendation, or type your own answer.")
+        if question.options and question.recommended:
+            print("  Press enter to take the recommendation, or type the option number or your own answer.")
+        elif question.options:
+            print("  Type the option number, or your own answer.")
+        else:
+            print("  Type your answer.")
         raw = input("> ").strip()
         answers.append(_parse_reply(question, raw))
     return answers

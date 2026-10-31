@@ -127,6 +127,7 @@ def build_finder_prompt(goal: str, hits: list[Hit], records: list[Record], mode:
     return f"""List the forks for this coding task. Return JSON only, with the shape {{"forks": [...]}}.
 Each fork has id, topic, question, kind (product, architecture, or implementation), options (id, label, files), recommended, depends_on, requires_option, prunes, settled_by, revises.
 prunes is true only when the answer drops files or rules out a design.
+Include options only when the choices are a small finite set. Leave options empty when the human should write the constraint in their own words.
 Set settled_by to a decision id when an accepted decision already answers the fork.
 Set revises to a decision id when this fork should replace that decision, and leave settled_by empty on a revision.
 Mode: {mode.value}. Design mode only includes product and architecture forks. Detailed mode may also include placement forks, and those name depends_on and requires_option when they depend on a design answer.

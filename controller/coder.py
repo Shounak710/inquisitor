@@ -71,7 +71,7 @@ def build_coder_prompt(
     hit_lines = "\n".join(f"- {hit.path}:{hit.line} {hit.text}" for hit in hits) or "- none"
     return f"""Implement the task. Return JSON only:
 {{"summary": "...", "assumptions": [], "blocked": null, "files_used": [], "writes": [{{"path": "rel/path", "content": "..."}}]}}
-Set blocked to a fork when you cannot proceed without a human answer. A fork has id, topic, question, kind, options, recommended, prunes.
+Set blocked to a fork when you cannot proceed without a human answer. A fork has id, topic, question, kind, options, recommended, prunes. Leave options empty when the human should answer in their own words.
 When blocked is set, leave writes empty.
 In llm mode, decide design questions yourself and list those choices under assumptions.
 Do not write paths outside the repository.

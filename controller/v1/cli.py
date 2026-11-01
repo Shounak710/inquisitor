@@ -6,15 +6,15 @@ import subprocess
 import sys
 from pathlib import Path
 
-from controller.coder import ModelCoder, SpecCoder
-from controller.finder import KeywordFinder, ModelFinder
-from controller.loop import run_task
-from controller.types import Answer, Mode, Question
+from controller.v1.coder import ModelCoder, SpecCoder
+from controller.v1.finder import KeywordFinder, ModelFinder
+from controller.v1.loop import run_task
+from controller.v1.types import Answer, Mode, Question
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Decide when to ask a human before a coding model runs."
+        description="Controller v1. Decide when to ask a human before a coding model runs."
     )
     parser.add_argument("goal")
     parser.add_argument("--mode", choices=[mode.value for mode in Mode], default=Mode.DESIGN.value)

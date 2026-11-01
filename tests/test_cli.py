@@ -3,8 +3,8 @@ from contextlib import redirect_stdout
 from io import StringIO
 from unittest.mock import patch
 
-from controller.cli import cli_ask
-from controller.types import Option, Question
+from controller.v1.cli import cli_ask
+from controller.v1.types import Option, Question
 
 
 class CliAskTest(unittest.TestCase):

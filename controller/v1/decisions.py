@@ -5,7 +5,7 @@ from dataclasses import replace
 from datetime import date
 from pathlib import Path
 
-from controller.types import Constraint, Fork, Hit, Kind, Record
+from controller.v1.types import Constraint, Fork, Hit, Kind, Record
 
 _HEADING = re.compile(r"^# (D\d+)\s+(.+)$")
 _FIELD = re.compile(r"^([A-Za-z-]+):\s*(.*)$")

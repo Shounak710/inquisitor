@@ -6,10 +6,10 @@ from contextlib import redirect_stdout
 from io import StringIO
 from pathlib import Path
 
-from controller.cli import main
-from controller.coder import ModelCoder, apply_writes, parse_coder_result
-from controller.finder import KeywordFinder, ModelFinder, build_finder_prompt, parse_forks
-from controller.types import Hit, Mode
+from controller.v1.cli import main
+from controller.v1.coder import ModelCoder, apply_writes, parse_coder_result
+from controller.v1.finder import KeywordFinder, ModelFinder, build_finder_prompt, parse_forks
+from controller.v1.types import Hit, Mode
 
 
 class FinderModelTest(unittest.TestCase):

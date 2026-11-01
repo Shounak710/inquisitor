@@ -4,16 +4,16 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Callable
 
-from controller.decisions import (
+from controller.v1.decisions import (
     constraint_from_record,
     load_records,
     persist_human_decision,
     relevant_records,
     settle_from_records,
 )
-from controller.policy import chosen_options, design_batch, implementation_batch, should_ask
-from controller.retrieve import retrieve
-from controller.types import (
+from controller.v1.policy import chosen_options, design_batch, implementation_batch, should_ask
+from controller.v1.retrieve import retrieve
+from controller.v1.types import (
     Answer,
     Ask,
     Coder,

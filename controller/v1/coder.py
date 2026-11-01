@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from controller.finder import Complete, load_json_text, parse_fork, strip_fence
-from controller.types import CoderResult, Constraint, Hit, Mode
+from controller.v1.finder import Complete, load_json_text, parse_fork, strip_fence
+from controller.v1.types import CoderResult, Constraint, Hit, Mode
 
 
 class SpecCoder:

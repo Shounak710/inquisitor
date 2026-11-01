@@ -1,4 +1,4 @@
-from controller.cli import main
+from controller.v1.cli import main
 
 if __name__ == "__main__":
     raise SystemExit(main())

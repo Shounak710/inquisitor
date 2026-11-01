@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from controller.types import Answer, Fork, Kind, Mode
+from controller.v1.types import Answer, Fork, Kind, Mode
 
 DESIGN_KINDS = {Kind.PRODUCT, Kind.ARCHITECTURE}
 DESIGN_CAP = 3

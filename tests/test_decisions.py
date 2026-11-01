@@ -3,19 +3,19 @@ import unittest
 from datetime import date
 from pathlib import Path
 
-from controller.decisions import (
+from controller.v1.decisions import (
     load_records,
     parse_record,
     persist_human_decision,
     render_record,
     settle_from_records,
 )
-from controller.types import Constraint, Fork, Kind, Option
+from controller.v1.types import Constraint, Fork, Kind, Option
 
 
 class DecisionTest(unittest.TestCase):
     def test_round_trip(self):
-        from controller.types import Record
+        from controller.v1.types import Record
 
         record = Record(
             id="D001",
@@ -89,7 +89,7 @@ class DecisionTest(unittest.TestCase):
             self.assertIn("D002", (directory / "index.md").read_text())
 
     def test_a_revision_stays_open_when_the_topic_is_already_accepted(self):
-        from controller.types import Record
+        from controller.v1.types import Record
 
         record = Record(
             id="D001",

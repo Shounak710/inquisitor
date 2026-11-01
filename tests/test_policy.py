@@ -1,7 +1,7 @@
 import unittest
 
-from controller.policy import design_batch, implementation_batch, should_ask
-from controller.types import Fork, Kind, Mode, Option
+from controller.v1.policy import design_batch, implementation_batch, should_ask
+from controller.v1.types import Fork, Kind, Mode, Option
 
 
 def fork(kind: Kind, **kwargs) -> Fork:

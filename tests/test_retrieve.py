@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from controller.retrieve import CODE_SUFFIXES, retrieve
+from controller.v1.retrieve import CODE_SUFFIXES, retrieve
 
 
 class RetrieveTest(unittest.TestCase):

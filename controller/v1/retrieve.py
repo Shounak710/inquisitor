@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from controller.types import Hit
+from controller.v1.types import Hit
 
 STOP = {
     "the",

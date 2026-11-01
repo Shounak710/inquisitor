@@ -2,8 +2,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from controller.loop import run_task
-from controller.types import (
+from controller.v1.loop import run_task
+from controller.v1.types import (
     Answer,
     CoderResult,
     Constraint,
@@ -234,7 +234,7 @@ class LoopTest(unittest.TestCase):
             decision="Soft-delete. Keep the row and set deleted_at.",
         )
         self.decisions.mkdir(parents=True)
-        from controller.decisions import render_record
+        from controller.v1.decisions import render_record
 
         (self.decisions / "D004.md").write_text(render_record(record))
         result = self.execute(Mode.DESIGN, [arch()])
@@ -288,7 +288,7 @@ class LoopTest(unittest.TestCase):
         result = self.execute(Mode.DESIGN, [revised])
         self.assertEqual(result.questions_asked, ("deletion",))
         self.assertEqual(result.records_written, ("D002",))
-        from controller.decisions import load_records
+        from controller.v1.decisions import load_records
 
         loaded = {record.id: record for record in load_records(self.decisions)}
         self.assertEqual(loaded["D001"].status, "superseded")
@@ -352,7 +352,7 @@ class LoopTest(unittest.TestCase):
         self.assertEqual(result.unresolved.id, "block-4")
 
     def save(self, record: Record):
-        from controller.decisions import render_record
+        from controller.v1.decisions import render_record
 
         self.decisions.mkdir(parents=True, exist_ok=True)
         (self.decisions / f"{record.id}.md").write_text(render_record(record))

@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from typing import Callable
 
-from controller.types import Fork, Hit, Kind, Mode, Option, Record
+from controller.v1.types import Fork, Hit, Kind, Mode, Option, Record
 
 # Keyword stand-in used when no model command is passed. It only emits forks
 # whose answers rule out a design or a file.
